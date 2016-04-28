@@ -17,6 +17,7 @@ package io.hops.metadata.yarn.dal.rmstatestore;
 
 import io.hops.exception.StorageException;
 import io.hops.metadata.common.EntityDataAccess;
+import io.hops.metadata.yarn.entity.appmasterrpc.RPC;
 import io.hops.metadata.yarn.entity.appmasterrpc.ToRemoveHBContainerStatus;
 import io.hops.metadata.yarn.entity.appmasterrpc.ToRemoveHBKeepAliveApp;
 import io.hops.metadata.yarn.entity.appmasterrpc.ToRemoveRPC;
@@ -34,7 +35,7 @@ public interface HeartBeatRPCDataAccess<T> extends EntityDataAccess {
 
   Map<Integer, T> getAll() throws StorageException;
 
-  void removeAll(List<ToRemoveRPC> hbRPCsToRemove,
-          List<ToRemoveHBContainerStatus> hbContStatusesToRemove,
-          List<ToRemoveHBKeepAliveApp> hbKeepAliveAppsToRemove) throws StorageException;
+  void removeAll(List<RPC> hbRPCsToRemove) throws StorageException;
+
+  void removeGarbage(List<RPC> hbRPCsToRemove) throws StorageException;
 }

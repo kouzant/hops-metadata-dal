@@ -14,4 +14,5 @@ public interface GarbageCollectorRPCDataAccess<T> extends EntityDataAccess {
     void addAll(Collection<T> rpcids) throws StorageException;
     void removeAll(Collection<T> rpcids) throws StorageException;
     List<T> getSubset(int limit) throws StorageException;
+    List<T> getAll() throws StorageException;
 }
