@@ -17,6 +17,12 @@ package io.hops.metadata.yarn.dal.rmstatestore;
 
 import io.hops.exception.StorageException;
 import io.hops.metadata.common.EntityDataAccess;
+import io.hops.metadata.yarn.entity.appmasterrpc.ToRemoveAllocAsk;
+import io.hops.metadata.yarn.entity.appmasterrpc.ToRemoveBlacklist;
+import io.hops.metadata.yarn.entity.appmasterrpc.ToRemoveRPC;
+import io.hops.metadata.yarn.entity.appmasterrpc.ToRemoveResource;
+
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -28,4 +34,8 @@ public interface AllocateRPCDataAccess<T> extends EntityDataAccess {
   void add(T toAdd) throws StorageException;
 
   Map<Integer, T> getAll() throws StorageException;
+
+  void removeAll(List<ToRemoveRPC> allocRPCs, List<ToRemoveAllocAsk> allocAsks,
+          List<ToRemoveBlacklist> allocBlAdd, List<ToRemoveBlacklist> allocBlRem,
+          List<ToRemoveResource> allocReleases, List<ToRemoveResource> allocIncrease) throws StorageException;
 }

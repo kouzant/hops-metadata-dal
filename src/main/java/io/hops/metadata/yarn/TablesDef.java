@@ -426,6 +426,12 @@ public class TablesDef {
     public static final String REQUEST = "request";
   }
 
+  public static interface GarbageCollectorRPC {
+    public static final String TABLE_NAME = "yarn_rpc_gc";
+    public static final String RPC_ID = "rpcid";
+    public static final String TYPE = "type";
+  }
+
   /*
     Capacity
    */
