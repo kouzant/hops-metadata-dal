@@ -18,9 +18,6 @@ package io.hops.metadata.yarn.dal.rmstatestore;
 import io.hops.exception.StorageException;
 import io.hops.metadata.common.EntityDataAccess;
 import io.hops.metadata.yarn.entity.appmasterrpc.RPC;
-import io.hops.metadata.yarn.entity.appmasterrpc.ToRemoveHBContainerStatus;
-import io.hops.metadata.yarn.entity.appmasterrpc.ToRemoveHBKeepAliveApp;
-import io.hops.metadata.yarn.entity.appmasterrpc.ToRemoveRPC;
 
 import java.util.List;
 import java.util.Map;
