@@ -15,7 +15,9 @@ import java.util.Map;
 public interface AllocatedContainersDataAccess<T> extends EntityDataAccess {
   public void update(Collection<T> entry) throws StorageException;
   
-  public Map<String, List<String>> getAll() throws StorageException;
+  public Map<String, List<T>> getAll() throws StorageException;
 
   public void removeAll(Collection<T> entries) throws StorageException;
+
+  public void removeGarbage(Collection<T> garbage) throws StorageException;
 }

@@ -49,7 +49,17 @@ public class AllocateResponse implements Comparable<AllocateResponse>{
   public AllocateResponse(String applicationattemptid, int responseId) {
     this(applicationattemptid, null, null, responseId, null);
   }
-  
+
+  public static AllocateResponse newAllocRespAllocContInstance(String applicationattemptid, int responseId,
+          List<String> allocatedContainers) {
+    return new AllocateResponse(applicationattemptid, null, allocatedContainers, responseId, null);
+  }
+
+  public static AllocateResponse newAllocRespComplStatusInstance(String applicationattemptid, int responseId,
+          Map<String, byte[]> completedContainerStatus) {
+    return new AllocateResponse(applicationattemptid, null, null, responseId, completedContainerStatus);
+  }
+
   public String getApplicationattemptid() {
     return applicationattemptid;
   }

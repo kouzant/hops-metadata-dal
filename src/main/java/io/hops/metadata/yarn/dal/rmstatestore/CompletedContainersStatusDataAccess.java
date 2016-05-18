@@ -8,6 +8,8 @@ package io.hops.metadata.yarn.dal.rmstatestore;
 
 import io.hops.exception.StorageException;
 import io.hops.metadata.common.EntityDataAccess;
+import io.hops.metadata.yarn.entity.rmstatestore.AllocateResponse;
+
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
@@ -15,7 +17,9 @@ import java.util.Map;
 public interface CompletedContainersStatusDataAccess<T> extends EntityDataAccess {
   public void update(Collection<T> entry) throws StorageException;
   
-  public Map<String, List<byte[]>> getAll() throws StorageException;
+  public Map<String, List<T>> getAll() throws StorageException;
 
   public void removeAll(Collection<T> entries) throws StorageException;
+
+  public void removeGarbage(Collection<T> garbage) throws StorageException;
 }

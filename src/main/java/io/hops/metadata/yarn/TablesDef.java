@@ -536,7 +536,14 @@ public class TablesDef {
     public static final String RESPONSEID = "responseid";
     public static final String STATUS = "status";
   }
-    
+
+  public static interface GarbageCollectedAllocateResponsesTableDef {
+    public static final String TABLE_NAME = "yarn_alloc_resp_gc";
+    public static final String APPLICATIONATTEMPTID = "applicationattemptid";
+    public static final String RESPONSEID = "response_id";
+    public static final String TYPE = "type";
+  }
+
   public static interface ApplicationAttemptStateTableDef {
     public static final String TABLE_NAME = "yarn_applicationattemptstate";
     public static final String APPLICATIONID = "applicationid";
