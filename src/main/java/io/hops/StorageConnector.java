@@ -26,7 +26,11 @@ public interface StorageConnector<T> {
 
   public <T> T obtainSession() throws StorageException;
 
+  public <T> T obtainCachedSession() throws StorageException;
+
   public void beginTransaction() throws StorageException;
+
+  public void beginCachedTransaction() throws StorageException;
 
   public void commit() throws StorageException;
 
@@ -52,6 +56,8 @@ public interface StorageConnector<T> {
   public void writeLock() throws StorageException;
 
   public void readCommitted() throws StorageException;
+
+  public void readCommittedCached() throws StorageException;
 
   public void setPartitionKey(Class className, Object key)
       throws StorageException;

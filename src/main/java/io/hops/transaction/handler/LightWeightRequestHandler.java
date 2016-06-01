@@ -22,8 +22,16 @@ import java.io.IOException;
 
 public abstract class LightWeightRequestHandler extends RequestHandler {
 
+  private final boolean cacheEnabledSession;
+
+  public LightWeightRequestHandler(OperationType opType, boolean cacheEnabledSession) {
+    super(opType);
+    this.cacheEnabledSession = cacheEnabledSession;
+  }
+
   public LightWeightRequestHandler(OperationType opType) {
     super(opType);
+    this.cacheEnabledSession = false;
   }
 
   @Override
@@ -45,7 +53,11 @@ public abstract class LightWeightRequestHandler extends RequestHandler {
         //If in the outer tx lock level was set to some thing other than read-commited
         //then we will end up taking un necessary locks.
         //To make sure that we done have this problem I explicitly set the locks to read-commited.
-        connector.readCommitted();
+        if (cacheEnabledSession) {
+          connector.readCommittedCached();
+        } else {
+          connector.readCommitted();
+        }
         totalTime = System.currentTimeMillis();
         Object ret = performTask();
         totalTime = System.currentTimeMillis() - totalTime;
