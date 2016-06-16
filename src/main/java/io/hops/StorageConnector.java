@@ -24,6 +24,8 @@ public interface StorageConnector<T> {
 
   public void setConfiguration(Properties conf) throws StorageException;
 
+  public void initDTOCache() throws StorageException;
+
   public <T> T obtainSession() throws StorageException;
 
   public <T> T obtainCachedSession() throws StorageException;
